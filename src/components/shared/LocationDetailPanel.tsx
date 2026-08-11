@@ -4,9 +4,6 @@ import {
   MapPin,
   Building2,
   DollarSign,
-  TrendingUp,
-  AlertTriangle,
-  CheckCircle2,
   Activity,
   ChevronRight,
 } from "lucide-react";
@@ -21,7 +18,6 @@ import {
   YAxis,
   Tooltip,
   Legend,
-  Cell,
 } from "recharts";
 
 interface LocationDetailPanelProps {

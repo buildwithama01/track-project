@@ -1,4 +1,4 @@
-import { Activity, Bell, FileText, CheckCircle, AlertTriangle } from "lucide-react";
+import { Activity, CheckCircle, AlertTriangle } from "lucide-react";
 import { MOCK_ACTIVITIES as activities, MOCK_UPDATES as updates } from "../data/mockdata";
 
 export default function Notifications() {
