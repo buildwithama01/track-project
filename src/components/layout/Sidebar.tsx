@@ -2,6 +2,7 @@ import {
   Home,
   Layers,
   MapPin,
+  MonitorPlay,
   PieChart,
   Users,
   Bell,
@@ -13,6 +14,7 @@ const navItems = [
   { to: "/", label: "Dashboard", icon: Home },
   { to: "/projects", label: "Projects", icon: Layers },
   { to: "/locations", label: "Locations", icon: MapPin },
+  { to: "/live", label: "Live", icon: MonitorPlay },
   { to: "/reports", label: "Reports", icon: PieChart },
   { to: "/team", label: "Team", icon: Users },
   { to: "/notifications", label: "Notifications", icon: Bell, badge: 3 },
@@ -47,7 +49,7 @@ export default function Sidebar() {
         ))}
 
         <p className="sidebar__section">MONITORING</p>
-        {navItems.slice(2, 4).map((item) => (
+        {navItems.slice(2, 5).map((item) => (
           <NavLink
             key={item.to}
             to={item.to}
@@ -61,7 +63,7 @@ export default function Sidebar() {
         ))}
 
         <p className="sidebar__section">MANAGEMENT</p>
-        {navItems.slice(4).map((item) => (
+        {navItems.slice(5).map((item) => (
           <NavLink
             key={item.to}
             to={item.to}

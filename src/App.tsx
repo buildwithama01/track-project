@@ -3,6 +3,7 @@ import AppShell from "./components/layout/AppShell";
 import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import Locations from "./pages/Locations";
+import Live from "./pages/Live";
 import Team from "./pages/Team";
 import Reports from "./pages/Reports";
 import Notifications from "./pages/Notifications";
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/locations" element={<Locations />} />
+          <Route path="/live" element={<Live />} />
           <Route path="/team" element={<Team />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/notifications" element={<Notifications />} />

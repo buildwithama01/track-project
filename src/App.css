@@ -105,9 +105,12 @@
 }
 
 .sidebar__item::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: var(--accent-gradient);
   opacity: 0;
   transition: var(--transition-normal);
@@ -282,6 +285,97 @@
 .page-hero__actions {
   display: flex;
   gap: 16px;
+}
+
+.live-page {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: 24px;
+}
+
+.live-page__video {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  background: var(--bg-secondary);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-md);
+}
+
+.live-page__video-frame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.live-page__video-frame iframe,
+.live-page__video-frame video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+  background: #020617;
+}
+
+.live-page__sidebar {
+  display: grid;
+  gap: 24px;
+}
+
+.live-page__meta {
+  display: grid;
+  gap: 16px;
+}
+
+.live-meta-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.live-meta-item span {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.live-meta-item strong {
+  color: var(--text-primary);
+  font-size: 16px;
+}
+
+.live-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--success);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.live-status__dot {
+  width: 8px;
+  height: 8px;
+  background: var(--success);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.9);
 }
 
 /* Buttons */
@@ -462,9 +556,15 @@
   font-weight: 700;
 }
 
-.health-card--healthy .health-card__value { color: var(--success); }
-.health-card--at-risk .health-card__value { color: var(--warning); }
-.health-card--critical .health-card__value { color: var(--danger); }
+.health-card--healthy .health-card__value {
+  color: var(--success);
+}
+.health-card--at-risk .health-card__value {
+  color: var(--warning);
+}
+.health-card--critical .health-card__value {
+  color: var(--danger);
+}
 
 /* Dashboard Grid */
 .dashboard-grid {
@@ -566,7 +666,9 @@
 
 .project-card:hover {
   transform: translateY(-4px) scale(1.01);
-  box-shadow: var(--shadow-lg), 0 0 20px rgba(255, 255, 255, 0.05);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 20px rgba(255, 255, 255, 0.05);
   border-color: var(--border-strong);
 }
 
@@ -593,7 +695,7 @@
 }
 
 .project-card__cover::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(10, 10, 15, 0.9), transparent);
@@ -749,7 +851,7 @@
   .app-shell {
     flex-direction: column;
   }
-  
+
   .sidebar {
     width: 100%;
     height: auto;
@@ -760,15 +862,17 @@
     align-items: center;
     justify-content: space-between;
   }
-  
+
   .sidebar__brand {
     margin: 0;
   }
-  
-  .sidebar__nav, .sidebar__section, .sidebar__profile {
+
+  .sidebar__nav,
+  .sidebar__section,
+  .sidebar__profile {
     display: none; /* In a real app, you'd trigger a mobile menu here */
   }
-  
+
   .health-row {
     grid-template-columns: 1fr;
   }
@@ -776,13 +880,23 @@
 
 /* === Keyframe Animations === */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideInRight {
-  from { transform: translateX(100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /* Make project cards feel interactive */
@@ -794,16 +908,16 @@
   .app-shell__main {
     padding: 16px;
   }
-  
+
   .page-header {
     padding: 0 16px;
   }
-  
+
   .page-hero {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .project-grid {
     grid-template-columns: 1fr;
   }
