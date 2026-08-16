@@ -21,9 +21,14 @@ const navItems = [
   { to: "/settings", label: "Settings", icon: Settings2 },
 ];
 
-export default function Sidebar() {
+interface SidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+export default function Sidebar({ isOpen = true, onClose }: SidebarProps) {
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar${isOpen ? " sidebar--open" : ""}`}>
       <div className="sidebar__brand">
         <div className="sidebar__logo">PM</div>
         <div>
@@ -39,6 +44,7 @@ export default function Sidebar() {
             key={item.to}
             to={item.to}
             end={item.to === "/"}
+            onClick={onClose}
             className={({ isActive }) =>
               `sidebar__item${isActive ? " sidebar__item--active" : ""}`
             }
@@ -53,6 +59,7 @@ export default function Sidebar() {
           <NavLink
             key={item.to}
             to={item.to}
+            onClick={onClose}
             className={({ isActive }) =>
               `sidebar__item${isActive ? " sidebar__item--active" : ""}`
             }
@@ -67,6 +74,7 @@ export default function Sidebar() {
           <NavLink
             key={item.to}
             to={item.to}
+            onClick={onClose}
             className={({ isActive }) =>
               `sidebar__item${isActive ? " sidebar__item--active" : ""}`
             }

@@ -22,6 +22,21 @@
   overflow-x: hidden;
 }
 
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.62);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 60;
+}
+
+.sidebar-overlay--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* Glassmorphism Utilities */
 .glass-panel {
   background: var(--glass-bg);
@@ -42,6 +57,20 @@
   padding: 32px 24px;
   z-index: 40;
   transition: var(--transition-normal);
+}
+
+.sidebar__badge {
+  margin-left: auto;
+  min-width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.14);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .sidebar__brand {
@@ -186,6 +215,12 @@
   z-index: 30;
 }
 
+.page-header__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .page-header__breadcrumb {
   display: flex;
   align-items: center;
@@ -203,6 +238,28 @@
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.page-header__menu-button {
+  display: none !important;
+}
+
+@media (max-width: 992px) {
+  .page-header__menu-button {
+    display: inline-flex !important;
+  }
+}
+
+.page-header__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--accent-gradient);
+  color: white;
 }
 
 .icon-button {
@@ -849,31 +906,51 @@
 
 @media (max-width: 992px) {
   .app-shell {
-    flex-direction: column;
+    display: block;
+  }
+
+  .app-shell__content {
+    height: auto;
+    min-height: 100vh;
   }
 
   .sidebar {
-    width: 100%;
-    height: auto;
-    padding: 16px 24px;
-    border-right: none;
-    border-bottom: 1px solid var(--border-light);
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: min(280px, 80vw);
+    padding: 24px 18px;
+    border-right: 1px solid var(--border-light);
+    transform: translateX(-110%);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  }
+
+  .sidebar--open {
+    transform: translateX(0);
   }
 
   .sidebar__brand {
-    margin: 0;
-  }
-
-  .sidebar__nav,
-  .sidebar__section,
-  .sidebar__profile {
-    display: none; /* In a real app, you'd trigger a mobile menu here */
+    margin-bottom: 24px;
   }
 
   .health-row {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    padding: 0 16px;
+  }
+
+  .page-header__breadcrumb {
+    font-size: 12px;
+  }
+
+  .page-header__actions {
+    gap: 8px;
+  }
+
+  .live-page {
     grid-template-columns: 1fr;
   }
 }
@@ -910,7 +987,19 @@
   }
 
   .page-header {
-    padding: 0 16px;
+    padding: 0 12px;
+    height: 72px;
+  }
+
+  .page-header__left {
+    min-width: 0;
+  }
+
+  .page-header__breadcrumb {
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .page-hero {
@@ -918,7 +1007,26 @@
     align-items: flex-start;
   }
 
+  .page-hero h1 {
+    font-size: 28px;
+  }
+
+  .page-hero__actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .button {
+    flex: 1 1 auto;
+  }
+
   .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  .dashboard-card,
+  .table-card,
+  .live-page__video {
+    padding: 20px;
   }
 }
